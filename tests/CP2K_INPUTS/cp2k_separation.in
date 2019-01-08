@@ -1,0 +1,28 @@
+#=== Interface options
+crys_a_file = SiC.cif
+crys_a_surface = 0 0 1
+crys_a_layers = 1
+crys_b_surface = 0 0 1
+crys_b_layers = 1
+crys_b_file = SiC.cif
+separation = 1.0
+tolerance = 5.0e-2
+calculate_initial_energy = True
+project_name = cp2k_test_sep
+output_file = cp2k_test_sep.out
+max_atoms = 5000
+print_debug = False
+energy_method = cp2k
+remove_duplicates = True
+
+search_list = 3
+
+#======= Separation Optimization options (3)
+sep_guess = 0.9
+sep_tolerance = 1e-2
+
+#=== CP2K options
+cp2k_input = cp2k_master
+max_mpi_processes = 10
+atoms_per_process = 13
+working_directory = ./

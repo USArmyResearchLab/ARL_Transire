@@ -1,0 +1,6 @@
+commands = [
+'neighbor       3 bin',
+'neigh_modify   every 1',
+'pair_style     eam',
+'pair_coeff * * Cu_smf7.eam',
+]

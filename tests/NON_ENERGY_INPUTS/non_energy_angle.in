@@ -1,0 +1,24 @@
+#=== Interface options
+crys_a_file = graphene.xyz
+crys_a_surface = 0 0 1
+crys_a_layers = 1
+crys_b_surface = 0 0 1
+crys_b_layers = 1
+crys_b_file = graphene.xyz
+separation = 0.3
+tolerance = 1.0e-1
+calculate_initial_energy = False
+project_name = non_energy_angle
+max_atoms = 100000
+output_file = non_energy_angle.out
+print_debug = True
+surface_search = False
+#=== Search options
+search_list = 1
+
+#======= Specific Angle options (search 1)
+angles_stepsize = 10
+number_of_angles = 7
+starting_angle = -10.0
+angle_calculate_energy = False
+write_coord_file = True
