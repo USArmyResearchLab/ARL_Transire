@@ -1,0 +1,89 @@
+CP2K_INPUT = calc.CP2K_INPUT
+GLOBAL = CP2K_INPUT.GLOBAL
+FORCE_EVAL = CP2K_INPUT.FORCE_EVAL_add()
+SUBSYS = FORCE_EVAL.SUBSYS
+DFT = FORCE_EVAL.DFT
+SCF = DFT.SCF
+MOTION = CP2K_INPUT.MOTION
+CONSTRAINT = MOTION.CONSTRAINT
+#================== inputsi
+
+GLOBAL.Run_type = "ENERGY_FORCE"
+GLOBAL.Print_level = "MEDIUM"
+GLOBAL.PRINT.Add_last = "NUMERIC"
+GLOBAL.Extended_fft_lengths = ".True."
+GLOBAL.Walltime = "08:00:00"
+calc.create_cell(SUBSYS, self.config.atom)
+calc.create_coord(SUBSYS, self.config.atom)
+
+FORCE_EVAL.Method = "Quickstep"
+FORCE_EVAL.PRINT.FORCES.Section_parameters = "ON"
+FORCE_EVAL.PRINT.FORCES.Filename = "forces"
+#FORCE_EVAL.PRINT.FORCES.Section_parameters = "OFF"
+
+#================== MNDO
+
+DFT.QS.Method = "GPW"
+DFT.QS.Eps_default = 1.0E-5
+DFT.SCF.Scf_guess = "ATOMIC"
+DFT.SCF.OT.Section_parameters = ".TRUE."
+DFT.SCF.OUTER_SCF.Section_parameters = ".TRUE."
+#DFT.SCF.OT.Preconditioner = "FULL_SINGLE_INVERSE"
+#DFT.SCF.OT.Linesearch = "2PNT"
+#DFT.SCF.OT.Minimizer = "DIIS"
+#DFT.LS_SCF.Dynamic_threshold = ".TRUE."
+#DFT.LS_SCF.Ls_diis = ".TRUE."
+DFT.SCF.OUTER_SCF.Max_scf = "200"
+#DFT.POISSON.EWALD.Ewald_type = "SPME"
+#DFT.POISSON.EWALD.Gmax = 30
+DFT.POISSON.Poisson_solver = "IMPLICIT"
+DFT.Basis_set_file_name = "BASIS_MOLOPT"
+DFT.Potential_file_name = "GTH_POTENTIALS"
+DFT.MGRID.Ngrids = 4
+DFT.MGRID.Cutoff = 250
+DFT.MGRID.Rel_cutoff = 60
+DFT.XC.XC_FUNCTIONAL.Section_parameters = "BLYP"
+DFT.XC.Density_smooth_cutoff_range = 1.0E-5
+DFT.XC.XC_GRID.Xc_smooth_rho = "NN10"
+DFT.XC.XC_GRID.Xc_deriv = "SPLINE2_SMOOTH"
+DFT.XC.XC_GRID.Use_finer_grid = ".True."
+
+#===================== Necessary lines for any ET calculations
+DFT.PRINT.AO_MATRICES.Core_hamiltonian = ".True."
+DFT.PRINT.AO_MATRICES.Overlap = ".True."
+DFT.PRINT.AO_MATRICES.Filename = "hamiltonian"
+
+#===================== Elements 
+
+KIND = SUBSYS.KIND_add("Si")  # Section_parameters can be provided as argument.
+KIND.Basis_set = "SZV-MOLOPT-SR-GTH"
+KIND.Potential = "GTH-PADE-q4"
+
+KIND = SUBSYS.KIND_add("C")
+KIND.Basis_set = "SZV-MOLOPT-GTH"
+KIND.Potential = "GTH-PADE-q4"
+
+KIND = SUBSYS.KIND_add("Al")
+KIND.Basis_set = "6-31G*"
+KIND.Potential = "GTH-PADE-q3"
+
+KIND = SUBSYS.KIND_add("Ga")
+KIND.Basis_set = "SZV-MOLOPT-SR-GTH"
+KIND.Potential = "GTH-PADE-q13"
+
+KIND = SUBSYS.KIND_add("N")
+KIND.Basis_set = "SZV-MOLOPT-GTH"
+KIND.Potential = "GTH-PADE-q5"
+
+KIND = SUBSYS.KIND_add("Cu")
+KIND.Basis_set = "DZV-GTH-PADE"
+KIND.Potential = "GTH-PADE-q1"
+
+KIND = SUBSYS.KIND_add("Pt")
+KIND.Basis_set = "DZV-GTH-PADE"
+KIND.Potential = "GTH-PADE-q10"
+
+#===================== fixing atoms
+#    FIXED_ATOMS = CONSTRAINT.FIXED_ATOMS_add()
+#    FIXED_ATOMS.List = "1..8 37..40"
+#    FIXED_ATOMS.Components_to_fix = "

@@ -1,0 +1,74 @@
+#=== Interface options
+crys_a_file = Cu.cif
+crys_a_surface = 0 0 1
+crys_a_layers = 2
+crys_b_surface = 0 0 1
+crys_b_layers = 2
+crys_b_file = Cu.cif
+separation = 1.0
+tolerance = 5.0e-2
+calculate_initial_energy = True
+ignore_initial_structure = False
+project_name = lammps_test_sep
+output_file = lammps_test_sep.out
+max_atoms = 5000
+print_debug = False
+energy_method = lammps
+remove_duplicates = False
+calculate_binding_energy = True
+
+#=== Search options
+surface_search = False
+range_surface_h_a = 0 0
+range_surface_k_a = 0 0
+range_surface_l_a = 1 1
+range_surface_h_b = 0 1
+range_surface_k_b = 0 0
+range_surface_l_b = 0 1
+
+search_list = 3
+
+#======= Markov Chain options (0)
+number_of_steps = 100
+markov_type = 2
+mc_translate_x = 0.0
+mc_translate_y = 0.0
+mc_rotate = 0.0
+mc_restart = False
+
+#======= Twist Angle options (1)
+#angles_list = 45 90 30
+angles_stepsize = 10
+number_of_angles = 9
+starting_angle = 0.0
+#===
+ras_depth = 2
+ras_factor = 5
+ras_energy = True
+ras_all_angles = True
+#===
+angle_write_energy_file = True
+angle_write_coord_file = True
+angle_calculate_energy = True
+angle_write_restart = True
+angle_return_initial = False
+angle_optimize_separation = True
+
+#======= Molecule Insertion options (2)
+insert_file = Pt.xyz
+calc_insert_energy = True
+insert_vacuum_below = 0.5
+insert_vacuum_above = 0.0
+#===
+rotate_insert_x = 0.0
+rotate_insert_y = 0.0
+rotate_insert_z = 0.0
+
+#======= Separation Optimization options (3)
+sep_guess = 1.2
+sep_max_steps = 25
+sep_tolerance = 1e-2
+sep_initial_step = 0.1
+
+#=== LAMMPS options
+lammps_input = lammps_cucu

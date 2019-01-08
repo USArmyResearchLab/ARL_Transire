@@ -1,0 +1,25 @@
+#=== Interface options
+crys_a_file = graphene.xyz
+crys_a_surface = 0 0 1
+crys_a_layers = 1
+crys_b_surface = 0 0 1
+crys_b_layers = 1
+crys_b_file = graphene.xyz
+separation = 0.3
+tolerance = 1.0e-1
+calculate_initial_energy = False
+project_name = graphene
+max_atoms = 100000
+output_file = transire.out
+print_debug = True
+surface_search = False
+
+#=== Search options
+search_list = 2
+
+#======= Molecule insertion options (search 2)
+insert_file = Pt.xyz
+calc_insert_energy = False
+rotate_insert_x = 90.0
+insert_vacuum_below = 0.2
+insert_vacuum_above = 0.2

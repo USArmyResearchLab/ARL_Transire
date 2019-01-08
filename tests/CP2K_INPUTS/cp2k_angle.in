@@ -1,0 +1,33 @@
+#=== Interface options
+crys_a_file = SiC.cif
+crys_a_surface = 0 0 1
+crys_a_layers = 2
+crys_b_surface = 0 0 1
+crys_b_layers = 2
+crys_b_file = SiC.cif
+separation = 1.0
+tolerance = 5.0e-2
+calculate_initial_energy = True
+project_name = cp2k_test_angle
+output_file = cp2k_test_angle.out
+max_atoms = 5000
+print_debug = False
+energy_method = cp2k
+remove_duplicates = True
+
+#=== Search options
+search_list = 1
+
+#======= Twist Angle options (1)
+angles_list = 90.0
+angle_write_energy_file = True
+angle_write_coord_file = False
+angle_calculate_energy = True
+angle_write_restart = True
+
+#=== CP2K options
+cp2k_input = cp2k_master
+max_mpi_processes = 10
+atoms_per_process = 13
+working_directory = ./
+

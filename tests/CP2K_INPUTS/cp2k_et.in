@@ -1,0 +1,34 @@
+#=== Interface options
+crys_a_file = SiC.cif
+crys_a_surface = 1 0 1
+crys_a_layers = 4
+crys_b_surface = 0 0 1
+crys_b_layers = 4
+crys_b_file = SiC.cif
+separation = 1.0
+tolerance = 5.0e-2
+calculate_initial_energy = True
+calculate_binding_energy = False
+project_name = cp2k_test_et
+output_file = cp2k_test_et.out
+max_atoms = 5000
+print_debug = False
+energy_method = cp2k
+remove_duplicates = True
+
+#=== CP2K options
+cp2k_input = cp2k_master
+max_mpi_processes = 10
+atoms_per_process = 13
+working_directory = ./
+
+#=== ET options
+perform_ET = True
+number_of_layers_a = 2
+number_of_layers_b = 2
+ET_restart = False
+restart_path = ./
+restart_file = ET_restart_coord
+exclude_coupling = False
+energy_levels_ET = -2 3 0.1
+
