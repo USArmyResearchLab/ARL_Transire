@@ -89,6 +89,11 @@ Documentation is designed for sphinx v1.7.0 and can be compiled by running:
 in the 'doc' directory.  Documentation output defaults to 'doc/html/'.
 
 
+Citations
+=========
+
+If you find ARL Transire useful, please cite its [![DOI](https://zenodo.org/badge/164665839.svg)](https://zenodo.org/badge/latestdoi/164665839)
+
 Legal
 =====
 
